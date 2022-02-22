@@ -1,3 +1,5 @@
+*{background-color:#ccffdb ;}
+
 .navbar {
     width: 100%;
     background-color: #3a1b0d;
@@ -5,6 +7,7 @@
 }
   
 .navbar a {
+    background-color: #3a1b0d;
     float: left;
     padding: 12px;
     color: #ccffdb;
@@ -15,20 +18,66 @@
 .navbar a:hover {
     background-color: #7c4e38;
 }
+
 header {
     background-color: #3a1b0d;
+    padding-bottom: 30px;
+}
+
+.techTitle{
+    background-color: #ccffdb;
+    width: 250px;
+    margin-left:30px;
+    box-shadow: 10px 8px 12px 1px #999595fd;
+    border-radius: 15px;
+    /* margin-bottom: 20px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+
 }
 
 h1 {
     text-align: center;
-    background-color: #3a1b0d;
-    color: #ccffdb;
+    color: #3a1b0d;
+    font-size: 35px;
 }
 
 main{
     background-color: #ccffdb;
 }
-   
+
+.row{
+    margin-top: 20px;
+    margin-left:30px;
+    margin-right:30px;  
+    font-size: 16px;
+}
+
+.title{
+    padding:15px;
+    margin-bottom: 0px;
+    background-color: #3a1b0d;
+    color: #ccffdb;
+}
+
+span{
+    font-size: 14px;
+    float:right;
+    text-align: right;
+    background-color: #3a1b0d
+}
+
+.message{
+    border: 2px solid #3a1b0d;
+    padding-top: 16px;
+    margin-top:0px;
+    padding-left: 15px;
+}
+
+
+
+
+
 @media screen and (max-width: 500px) {
     .navbar a {
       float: none;
