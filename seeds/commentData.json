@@ -1,0 +1,26 @@
+[
+    {
+        "content": "We cover this on class yesterday",
+        "date": "February 13, 2021 09:00:00",
+        "user_id": 1,
+        "post_id": 1
+    },
+    {
+        "content": " I like this topic",
+        "date": "June 22, 2021 12:00:00",
+        "user_id": 2,
+        "post_id": 1
+    },
+    {
+        "content": "I am behind this unit homework",
+        "date": "August 24, 2021 06:00:00",
+        "user_id": 1,
+        "post_id": 1
+    },
+    {
+        "content": "This is a very interesting topic",
+        "date": "June 25, 2021 02:00:00",
+        "user_id": 1,
+        "post_id": 2
+    }
+]
