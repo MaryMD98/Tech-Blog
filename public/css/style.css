@@ -1,4 +1,9 @@
-*{background-color:#ccffdb ;}
+*{
+    background-color:#ccffdb ;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+}
 
 .navbar {
     width: 100%;
@@ -28,18 +33,16 @@ header {
     background-color: #ccffdb;
     width: 250px;
     margin-left:30px;
-    box-shadow: 10px 8px 12px 1px #999595fd;
+    box-shadow: 8px 8px 8px 4px #6e6d6dfd;
     border-radius: 15px;
-    /* margin-bottom: 20px; */
     padding-top: 10px;
     padding-bottom: 10px;
-
 }
 
 h1 {
     text-align: center;
     color: #3a1b0d;
-    font-size: 35px;
+    font-size: 37px;
 }
 
 main{
@@ -74,13 +77,58 @@ span{
     padding-left: 15px;
 }
 
+#comentTitle{
+    box-sizing:border-box;
+}
 
+input,textarea{
+    width:98%;
+    font-size: 16px;
+    background-color: white;   
+}
 
+#comButton{
+    background-color: gray;
+    color: white;
+    font-size:18px;
+    margin-bottom: 10px;
+}
 
+.switch{
+    font-size: 16px;
+    float:left;
+    text-align: left;
+}
 
-@media screen and (max-width: 500px) {
+.switch a{
+    color:#3a1b0d;
+    text-decoration: none;
+}
+
+.signIN{
+    font-size: 18px;
+    margin-right: 80px;
+    margin-left: 80px;
+}
+
+.signIN button{
+    font-size: 20px;
+    background-color: gray;
+    color:white;
+    width:98%;
+}
+
+.newPOST{
+    font-size: 24px;
+    background-color: #3a1b0d;
+    color:#ccffdb;
+    margin: auto;
+    display:flex;
+}
+
+/* @media screen and (max-width: 500px) {
     .navbar a {
       float: none;
       display: block;
     }
-}
+} */
