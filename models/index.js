@@ -6,6 +6,7 @@ const User = require('./User');
  * user has many post *
  * user can have many coments *
  * coments belong to one post *
+ * coments belong to one user *
  * post can have many comments *
  * post belong to one user *
  */
@@ -27,6 +28,7 @@ Comment.belongsTo(Post, {
     foreignKey: 'post_id'
 });
 
+//coments belong to one user
 Comment.belongsTo(User, {
     foreignKey: 'user_id'
 });
