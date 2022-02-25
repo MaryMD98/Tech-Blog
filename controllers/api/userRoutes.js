@@ -6,7 +6,12 @@ const withAuth = require('../../utils/auth');
 router.post();
 
 // login
-router.post();
+router.post('/login', async (req,res) => {
+    try{
+        const userData = await User.findOne();
+    }
+    catch(err){ res.status.json(err);}
+});
 
 //logout
 router.post('/logout', (req, res) => {
