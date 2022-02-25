@@ -26,12 +26,12 @@ router.get('/:id', async (req, res) => {
 });
 
 // create a new post, needs withAuth
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try{
         const postData = await Post.create({
             title: req.body.title,
             info: req.body.info,
-            user_id: req.session.user_id 
+            user_id: req.session.user_id, 
         });
         res.status(200).json(postData);
     }
@@ -39,9 +39,31 @@ router.post('/', async (req, res) => {
 });
 
 // update a one post needs withAuth
-router.put();
+router.put('/:id', withAuth, async (req, res) => {
+    try{
+        const postData = await Post.update(
+          {
+            title:req.body.title,
+            info: req.body.info,
+          },
+          { where: { id: req.params.id }, } //,user_id: req.session.user_id
+        );
+        res.status(200).json(postData);
+    }
+    catch (err){ res.status(500).json(err); }
+});
 
 // delete a  post needs withAuth
-router.delete();
+router.delete('/:id', withAuth, async (req, res) => {
+    try{
+        const postData = await Post.destroy({
+            where: {id: req.params.id, user_id: req.session.user_id},
+        });
+        // validate if the id exists in the database
+        if(!postData){res.status(404).json({message: 'NO post found with that ID'}); return;}
+        res.status(200).json(postData);
+    }
+    catch(err){ res.status(500).json(err); }
+});
 
 module.exports = router;
