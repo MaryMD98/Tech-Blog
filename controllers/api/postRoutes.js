@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { render } = require('express/lib/response');
 const { Comment, Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
@@ -7,7 +6,7 @@ const withAuth = require('../../utils/auth');
 router.get('/', withAuth, (req, res)=>{ res.render("nameofrender"); });
 
 // read one post by its id
-render.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const postData = await Post.findByPk( req.params.id, {
             attributes:['id', 'title', 'info', 'date'],
@@ -26,10 +25,23 @@ render.get('/:id', async (req, res) => {
     catch (err){ res.status(500).json(err); }
 });
 
-// create a new post needs withAuth
+// create a new post, needs withAuth
+router.post('/', async (req, res) => {
+    try{
+        const postData = await Post.create({
+            title: req.body.title,
+            info: req.body.info,
+            user_id: req.session.user_id 
+        });
+        res.status(200).json(postData);
+    }
+    catch (err){ res.status(500).json(err); }
+});
 
 // update a one post needs withAuth
+router.put();
 
 // delete a  post needs withAuth
+router.delete();
 
 module.exports = router;
