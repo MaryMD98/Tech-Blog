@@ -21,7 +21,18 @@ router.get('/', async (req, res) => {
 });
 
 // create the route for creating a new comment
-
+// id param is the post id
+router.post('/:id', withAuth, (req, res) => {
+    try{
+        const newComment = await Comment.create({
+            content: req.body.content,
+            user_id: req.session.user_id,
+            post_id: req.params.id,
+        });
+        res.status(200).json(newComment);
+    }
+    catch(err){ res.status(500).json(err);}
+});
 
 // login route, if already logged in send to dashboard, otherwise send to login page
 router.get('/login', (req, res) => {
