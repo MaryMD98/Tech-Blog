@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
         const DataPost = postData.map((post) => post.get({ plain: true }));
         //pass serialized data and session flag into template
         res.status(200).json(DataPost);
-        // res.render("homepage", {DataPost, logged_in: req.session.logged_in });
+        // res.render("homepage", {DataPost, dash_board:false ,logged_in: req.session.logged_in });
     }
     catch (err){ res.status(500).json(err); }
 });

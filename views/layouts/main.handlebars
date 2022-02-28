@@ -8,6 +8,32 @@
     <title>Document</title>
 </head>
 <body>
-    {{{Body}}}
+    <header>
+    {{!-- <!-- navbar of the website -->
+    <!-- navbar inludes homepage, dashboard and login option --> --}}
+    {{!-- navbar will have two if, to check login and dashboard --}}
+        <div class="navbar">
+            <a href="#"></i> Home</a>
+            <a href="#"></i> Dashboard</a>
+            {{#if logged_in}}
+            <a href="#"></i> Login</a>
+            {{else}}
+            <a href="#"></i> logout</a>
+            {{/if}}
+        </div>
+        {{#if dash_board}}
+        <h1 class="techTitle">Your Dashboard</h1> 
+        {{else}}
+        <h1 class="techTitle">The Tech Blog</h1>
+        {{/if}}
+    </header>
+
+    <main>
+        <div class="row">
+
+            {{{Body}}}
+
+        </div>
+    </main>
 </body>
 </html>
