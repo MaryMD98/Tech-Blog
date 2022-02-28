@@ -1,3 +1,3 @@
 {{#each userPosts.posts as |post|}}
-<h2 class="oneUser">{{post.title}}<span>{{format_date post.date}}</span></h2>
+<h2 class="oneUser"><a href="/api/posts/{{post.id}}">{{post.title}}</a><span>{{format_date post.date}}</span></h2>
 {{/each}}

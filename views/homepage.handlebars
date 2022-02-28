@@ -1,0 +1,8 @@
+{{#each DataPost as |post|}}
+<div class="row">
+    <h2 class="title">{{post.title}}
+        <span>Posted by {{post.user.username}} on {{format_date post.date}}</span>
+    </h2>
+    <p class="message">{{post.info}}</p>
+</div>
+{{/each}}
