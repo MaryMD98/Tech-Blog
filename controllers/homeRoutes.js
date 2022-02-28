@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Comment, Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+// ~~~~~Done~~~~~~~~~
 // Homepage will display all the post on database
 router.get('/', async (req, res) => {
     try{
@@ -20,9 +21,10 @@ router.get('/', async (req, res) => {
     catch (err){ res.status(500).json(err); }
 });
 
+// ~~~~~Done~~~~~~~~~
 // create the route for creating a new comment
 // id param is the post id
-router.post('/:id', withAuth, (req, res) => {
+router.post('/:id', withAuth, async (req, res) => {
     try{
         const newComment = await Comment.create({
             content: req.body.content,

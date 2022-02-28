@@ -5,6 +5,7 @@ const withAuth = require('../../utils/auth');
 // render to page to create new post, only withAuth can create
 router.get('/', withAuth, (req, res)=>{ res.render("nameofrender"); });
 
+// ~~~~~Done~~~~~~~~~
 // read one post by its id
 router.get('/:id', async (req, res) => {
     try {
@@ -25,6 +26,7 @@ router.get('/:id', async (req, res) => {
     catch (err){ res.status(500).json(err); }
 });
 
+// ~~~~~Done~~~~~~~~~
 // create a new post, needs withAuth
 router.post('/', withAuth, async (req, res) => {
     try{
@@ -38,6 +40,7 @@ router.post('/', withAuth, async (req, res) => {
     catch (err){ res.status(500).json(err); }
 });
 
+// ~~~~~Done~~~~~~~~~
 // update a one post needs withAuth
 router.put('/:id', withAuth, async (req, res) => {
     try{
@@ -53,15 +56,30 @@ router.put('/:id', withAuth, async (req, res) => {
     catch (err){ res.status(500).json(err); }
 });
 
+// ~~~~~Done~~~~~~~~~
 // delete a  post needs withAuth
 router.delete('/:id', withAuth, async (req, res) => {
     try{
-        const postData = await Post.destroy({
+        // first we need to delete the coments on the post
+        const postData = await Post.findByPk( req.params.id, {
+            attributes:['id', 'title',],
+            include:[{model: Comment, attributes:['id','content',],},],
+        });
+        // validate if the id to be deleted exists on database
+        if(!postData){ res.status(404).json({ message: 'NO post found with that ID'}); return; }
+        // Serialize data 
+        const DataPost = postData.get({ plain: true });
+        // delete all the comments related to the post
+        for(const post of DataPost.comments){
+            const Data = await Comment.destroy({ where: {id: post.id}, });
+        }
+
+        // now delete the post 
+        const Data = await Post.destroy({
             where: {id: req.params.id, user_id: req.session.user_id},
         });
         // validate if the id exists in the database
-        if(!postData){res.status(404).json({message: 'NO post found with that ID'}); return;}
-        res.status(200).json(postData);
+        res.status(200).json(Data);
     }
     catch(err){ res.status(500).json(err); }
 });
