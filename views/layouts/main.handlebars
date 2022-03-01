@@ -15,11 +15,13 @@
         <div class="navbar">
             <a href="/"></i> Home</a>
             <a href="/api/users/"></i> Dashboard</a>
+
             {{#if logged_in}}
-            <a href="/login"></i> Login</a>
+            <a href="#" id="#logout"></i> logout</a>
             {{else}}
-            <a href="/api/users/logout"></i> logout</a>
+            <a href="/login"></i> Login</a>
             {{/if}}
+
         </div>
         {{#if dash_board}}
         <h1 class="techTitle">Your Dashboard</h1> 

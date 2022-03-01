@@ -111,13 +111,13 @@ input,textarea{
     text-decoration: none;
 }
 
-.signIN{
+.sign{
     font-size: 18px;
     margin-right: 80px;
     margin-left: 80px;
 }
 
-.signIN button{
+.sign button{
     font-size: 20px;
     background-color: gray;
     color:white;

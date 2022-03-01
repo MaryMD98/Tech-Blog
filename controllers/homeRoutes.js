@@ -41,7 +41,7 @@ router.get('/login', (req, res) => {
     res.render('login', {style:"style.css" , dash_board:true });
 });
 
-// login route, if already logged in send to dashboard, otherwise send to login page
+// sign up route, if already logged in send to dashboard, otherwise send to sign up page
 router.get('/create', (req, res) => {
     if(req.session.logged_in){ res.redirect('/api/users/'); return; }
     res.render('create', {style:"style.css" , dash_board:true });

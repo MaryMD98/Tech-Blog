@@ -1,3 +1,6 @@
+
+
+
 /**pseudo-code hw14-MVC - blog site
  * 
  * navbar inludes homepage, dashboard and login option
