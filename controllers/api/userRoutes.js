@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Comment, Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// ~~~~~Done~~~~~~~~~
+// ~~~~~Done~~~~~~~~~Done
 // Display the posts created by a user
 router.get('/', withAuth, async (req, res) => {
     try{
@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
     catch(err){ res.status(500).json(err); }
 });
 
-// ~~~~~Done~~~~~~~~~
+// ~~~~~Done~~~~~~~~~Done
 // login
 router.post('/login', async (req,res) => {
     try{
@@ -55,7 +55,7 @@ router.post('/login', async (req,res) => {
     catch(err){ res.status(500).json(err);}
 });
 
-// ~~~~~Done~~~~~~~~~
+// ~~~~~Done~~~~~~~~~Done
 //logout
 router.post('/logout', (req, res) => {
     if (req.session.logged_in){ req.session.destroy(() => {

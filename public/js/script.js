@@ -1,4 +1,9 @@
 
+// event listener for creating a new post
+// event listener for adding a new comment
+
+// event listener to update a post
+// event listener to delete a post
 
 
 /**pseudo-code hw14-MVC - blog site
