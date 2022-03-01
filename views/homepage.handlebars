@@ -1,8 +1,8 @@
 {{#each DataPost as |DataPost|}}
 
-    <h2 class="title"><a heref="/api/posts/{{DataPost.id}}">{{DataPost.title}}</a>
+    <a href="/api/posts/{{DataPost.id}}"><h2 class="title">{{DataPost.title}}
         <span>Posted by {{DataPost.user.username}} on {{format_date DataPost.date}}</span>
-    </h2>
+    </h2></a>
     <p class="message">{{DataPost.info}}</p>
 
 {{/each}}

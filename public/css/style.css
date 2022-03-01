@@ -63,6 +63,11 @@ main{
     color: #ccffdb;
 }
 
+.title a{
+    background-color: #3a1b0d;
+    color: #ccffdb;
+}
+
 span{
     font-size: 14px;
     float:right;
@@ -74,6 +79,7 @@ span{
     border: 2px solid #3a1b0d;
     padding-top: 16px;
     margin-top:0px;
+    padding-bottom: 10px;
     padding-left: 15px;
 }
 
@@ -137,6 +143,9 @@ input,textarea{
     color: white;
 }
 
+a{
+    text-decoration: none;
+}
 
 /* @media screen and (max-width: 500px) {
     .navbar a {

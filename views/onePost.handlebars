@@ -1,14 +1,16 @@
 <h2 class="title">{{DataPost.title}}
-    <span>Posted by UserCreatedpost on time</span>
+    <span>Posted by {{DataPost.user.username}} on {{format_date DataPost.date}}</span>
 </h2>
-<p class="message">This is the contents of the post</p>
-<!-- user comments saved -->
-<h2 class="title"></h2>
-<div class="message">
-    <p>This is the contents of the message left by user</p>
-    <p> -userwhopostedcoment, dateposted</p>
-</div>
-<!-- asking user to leave a coment -->
+<p class="message">{{DataPost.info}}</p>
+
+{{#each DataPost.comments as | Data |}}
+    <h2 class="title"></h2>
+    <div class="message">
+        <p>{{Data.content}}</p>
+    <p> -{{Data.user.username}}, {{format_date Data.date}}</p>
+    </div>
+{{/each}}
+
 <h2 class="title"></h2>
 <div class="message">
     <div class="comentTitle">
