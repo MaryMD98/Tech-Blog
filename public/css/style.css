@@ -4,6 +4,10 @@
     /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
     /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
 }
+/* 
+body{
+    background-color:#ccffdb ;
+} */
 
 .navbar {
     width: 100%;
@@ -139,6 +143,11 @@ input,textarea{
 }
 
 .oneUser span{
+    background-color: gray;
+    color: white;
+}
+
+.oneUser a{
     background-color: gray;
     color: white;
 }
