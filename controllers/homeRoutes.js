@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Comment, Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-// ~~~~~Done~~~~~~~~~
+// ~~~~~Done~~~~~~~~~Done
 // Homepage will display all the post on database
 router.get('/', async (req, res) => {
     try{
@@ -37,10 +37,14 @@ router.post('/:id', withAuth, async (req, res) => {
 
 // login route, if already logged in send to dashboard, otherwise send to login page
 router.get('/login', (req, res) => {
-    if(req.session.logged_in){ res.redirect('/'); return; }
-    res.render('login');
+    if(req.session.logged_in){ res.redirect('/api/users/'); return; }
+    res.render('login', {style:"style.css" , dash_board:true });
 });
 
-//add coment
+// login route, if already logged in send to dashboard, otherwise send to login page
+router.get('/create', (req, res) => {
+    if(req.session.logged_in){ res.redirect('/api/users/'); return; }
+    res.render('create', {style:"style.css" , dash_board:true });
+});
 
 module.exports = router;

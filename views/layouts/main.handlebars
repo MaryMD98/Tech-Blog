@@ -13,12 +13,12 @@
     <!-- navbar inludes homepage, dashboard and login option --> --}}
     {{!-- navbar will have two if, to check login and dashboard --}}
         <div class="navbar">
-            <a href="#"></i> Home</a>
-            <a href="#"></i> Dashboard</a>
+            <a href="/"></i> Home</a>
+            <a href="/api/users/"></i> Dashboard</a>
             {{#if logged_in}}
-            <a href="#"></i> Login</a>
+            <a href="/login"></i> Login</a>
             {{else}}
-            <a href="#"></i> logout</a>
+            <a href="/api/users/logout"></i> logout</a>
             {{/if}}
         </div>
         {{#if dash_board}}

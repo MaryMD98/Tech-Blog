@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 // render to page to create new post, only withAuth can create
 router.get('/', withAuth, (req, res)=>{ res.render("nameofrender"); });
 
-// ~~~~~Done~~~~~~~~~
+// ~~~~~Done~~~~~~~~~Done
 // read one post by its id
 router.get('/:id', async (req, res) => {
     try {

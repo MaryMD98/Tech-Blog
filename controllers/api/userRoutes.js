@@ -12,8 +12,8 @@ router.get('/', withAuth, async (req, res) => {
         });
         if(!UserData){ res.status(400).json({message: 'No user found with that ID!'}); return; }
         const userPosts = UserData.get({ plain: true });
-        res.status(200).json(userPosts);
-        // res.render("dashboard", {userPosts, dash_board:true, logged_in: req.session.logged_in });
+        // res.status(200).json(userPosts);
+        res.render("dashboard", { style:"style.css" , userPosts , dash_board:true , logged_in: req.session.logged_in });
     }
     catch(err){ res.status(500).json(err);}
 });
