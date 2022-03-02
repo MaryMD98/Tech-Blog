@@ -3,7 +3,7 @@ const newPOST = async (event) => {
     event.preventDefault();
     // get the information from the form
     const title = document.querySelector('#postTitle').value.trim();
-    const content = document.querySelector('#postContent').value.trim();
+    const content = document.querySelector('#postContent').value;
 
     if(title && content){
         const response = await fetch(`/api/posts/`, {
@@ -17,22 +17,67 @@ const newPOST = async (event) => {
 };
 
 // handler for creating a new comment
+const createComent = async (event) => {
+    event.preventDefault();
+    //get the information from the new comment 
+    const content = document.querySelector('#coment').value;
+    const id = event.target.getAttribute('data-id');
+
+    if(content && id){
+        const response = await fetch(`/${id}`, {
+            method: 'POST',
+            body: JSON.stringify({content}),
+            headers: {'Content-Type': 'application/json'},
+        });
+        if(response.ok){ document.location.replace('/');}
+        else {alert('failed to create a new comment');}
+    }
+};
 
 // handler for updating a post
+const updatePost = async (event) => {
+    event.preventDefault();
+    //get the updated title and content
+    const title = document.querySelector('#updateTitle').value.trim();
+    const content = document.querySelector('#updateContent').value;
+    const id = event.target.getAttribute('data-id');
+
+    if(title && content){
+        const response = await fetch(`/api/posts/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify({title, content}),
+            headers: {'Content-Type': 'application/json'},
+        });
+        if(response.ok){ document.location.replace('/api/users/');}
+        else {alert('failed to create a new comment');}
+    }
+};
 
 // handler for deleting a post
+const deleteHandler = async (event) => {
+    event.preventDefault();
+    const id = event.target.getAttribute('data-id');
+    if(id){
+        const response = await fetch(`/api/posts/${id}`, {
+            method: 'DELETE',
+        });
+        if(response.ok){ document.location.replace('/api/users/');}
+        else {alert('failed to create a new comment');}
+    }
+};
 
+// event listeners
 // event listener for creating a new post
 document.querySelector('#createPOST').addEventListener('submit', newPOST);
 
 // event listener for adding a new comment
-document.querySelector('#comentNew');
+document.querySelector('#comentNew').addEventListener('click', createComent);
 
 // event listener to update a post
-document.querySelector('#updatePost');
+document.querySelector('#updatePost').addEventListener('click', updatePost);
 
 // event listener to delete a post
-document.querySelector('#deletePost');
+document.querySelector('#deletePost').addEventListener('click', deleteHandler);
 
 
 /**pseudo-code hw14-MVC - blog site

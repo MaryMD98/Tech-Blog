@@ -2,10 +2,10 @@
 <div class="message">
     <div class="comentTitle">
         Title:<br>
-        <input type="text" name="title">{{DataPost.title}}
+        <input type="text" name="title" id="updateTitle">{{DataPost.title}}
         <br><br>
         Content:<br>
-        <textarea name="content" rows="5" cols="30">{{DataPost.info}}</textarea>
+        <textarea name="content" rows="5" cols="30" id="updateContent">{{DataPost.info}}</textarea>
         <br>
         <button type="submit" class="comButton" id="updatePost" data-id="{{DataPost.id}}">Update Post</button>
         <br>
