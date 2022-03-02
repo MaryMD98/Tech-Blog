@@ -1,7 +1,7 @@
 {{#each userPosts.posts as |post|}}
-    <h2 class="oneUser"><a href="/api/posts/{{post.id}}">{{post.title}}</a><span>{{format_date post.date}}</span></h2>
+    <h2 class="oneUser"><a href="/api/posts/update/{{post.id}}">{{post.title}}</a><span>{{format_date post.date}}</span></h2>
 {{/each}}
 
     <div>
-        <button class="newPOST">+ New Post</button>
+        <button class="newPOST"><a href="/api/posts/">+ New Post</a></button>
     </div>

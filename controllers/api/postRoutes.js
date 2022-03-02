@@ -3,7 +3,27 @@ const { Comment, Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // render to page to create new post, only withAuth can create
-router.get('/', withAuth, (req, res)=>{ res.render("nameofrender"); });
+router.get('/', withAuth, (req, res)=>{ 
+    res.render("createpost", { style:"style.css" , dash_board:true , logged_in: req.session.logged_in }); 
+});
+
+// render the update file to display info before updating it
+router.get('/update/:id', withAuth, (req, res)=>{ res.render("postUpdate"); 
+    try {
+        const postData = await Post.findByPk( req.params.id, {
+            attributes:['id', 'title', 'info',],
+            include:[{model: User, attributes:['username']},],
+        });
+        //validate if the id exists on database
+        if(!postData){ res.status(404).json({ message: 'No Post found with that ID'}); return; }
+        // Serialize data so the template can read it
+        const DataPost = postData.get({ plain: true });
+        //pass serialized data and session flag into template
+        // res.status(200).json(DataPost);
+        res.render("postUpdate", { style:"style.css" , DataPost , dash_board:true , logged_in: req.session.logged_in });
+    }
+    catch (err){ res.status(500).json(err); }
+});
 
 // ~~~~~Done~~~~~~~~~Done
 // read one post by its id

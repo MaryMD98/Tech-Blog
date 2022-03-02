@@ -42,9 +42,9 @@ router.get('/login', (req, res) => {
 });
 
 // sign up route, if already logged in send to dashboard, otherwise send to sign up page
-router.get('/create', (req, res) => {
+router.get('/signup', (req, res) => {
     if(req.session.logged_in){ res.redirect('/api/users/'); return; }
-    res.render('create', {style:"style.css" , dash_board:true });
+    res.render('signup', {style:"style.css" , dash_board:true });
 });
 
 module.exports = router;

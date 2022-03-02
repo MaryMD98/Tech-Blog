@@ -1,6 +1,8 @@
 
 // event listener for creating a new post
+document.querySelector('#createPOST');
 // event listener for adding a new comment
+document.querySelector('#comButton');
 
 // event listener to update a post
 // event listener to delete a post

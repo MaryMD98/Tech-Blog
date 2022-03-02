@@ -1,0 +1,14 @@
+<h2 class="title">Edit Post</h2>
+<div class="message">
+    <div class="comentTitle">
+        Title:<br>
+        <input type="text" name="title">{{DataPost.title}}
+        <br><br>
+        Content:<br>
+        <textarea name="content" rows="5" cols="30">{{DataPost.info}}</textarea>
+        <br>
+        <button type="submit" class="comButton" id="updatePost" data-id="{{DataPost.id}}">Update Post</button>
+        <br>
+        <button type="submit" class="comButton" id="deletePost" data-id="{{DataPost.id}}">Delete</button>
+    </div>
+</div>

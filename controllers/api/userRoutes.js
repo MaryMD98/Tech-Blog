@@ -18,7 +18,7 @@ router.get('/', withAuth, async (req, res) => {
     catch(err){ res.status(500).json(err);}
 });
 
-// ~~~~~Done~~~~~~~~~
+// ~~~~~Done~~~~~~~~~Done
 // create a user
 router.post('/', async (req, res) => {
     try{
