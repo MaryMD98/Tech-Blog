@@ -8,11 +8,10 @@ router.get('/', withAuth, (req, res)=>{
 });
 
 // render the update file to display info before updating it
-router.get('/update/:id', withAuth, (req, res)=>{ res.render("postUpdate"); 
+router.get('/update/:id', withAuth, async (req, res) => {  
     try {
         const postData = await Post.findByPk( req.params.id, {
             attributes:['id', 'title', 'info',],
-            include:[{model: User, attributes:['username']},],
         });
         //validate if the id exists on database
         if(!postData){ res.status(404).json({ message: 'No Post found with that ID'}); return; }

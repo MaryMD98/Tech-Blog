@@ -97,7 +97,7 @@ input,textarea{
     background-color: white;   
 }
 
-#comButton{
+.comButton{
     background-color: gray;
     color: white;
     font-size:18px;
@@ -131,10 +131,15 @@ input,textarea{
 .newPOST{
     font-size: 24px;
     background-color: #3a1b0d;
-    color:#ccffdb;
     margin: auto;
     display:flex;
 }
+
+.newPOST a{
+    background-color: #3a1b0d;
+    color:#ccffdb;
+}
+
 .oneUser{
     background-color: gray;
     color:white;
