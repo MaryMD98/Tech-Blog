@@ -3,13 +3,13 @@ const updatePost = async (event) => {
     event.preventDefault();
     //get the updated title and content
     const title = document.querySelector('#updateTitle').value.trim();
-    const content = document.querySelector('#updateContent').value;
+    const info = document.querySelector('#updateContent').value;
     const id = event.target.getAttribute('data-id');
 
-    if(title && content){
+    if(title && info){
         const response = await fetch(`/api/posts/${id}`, {
             method: 'PUT',
-            body: JSON.stringify({title, content}),
+            body: JSON.stringify({title, info}),
             headers: { 'Content-Type': 'application/json'},
         });
         if(response.ok){ document.location.replace('/api/users/');}
@@ -32,7 +32,7 @@ const deleteHandler = async (event) => {
 
 
 // event listener to update a post
-document.querySelector('#updatePost').addEventListener('submit', updatePost);
+document.querySelector('#updatePost').addEventListener('click', updatePost);
 
 // event listener to delete a post
-document.querySelector('#deletePost').addEventListener('submit', deleteHandler);
+document.querySelector('#deletePost').addEventListener('click', deleteHandler);

@@ -3,12 +3,16 @@ const newPOST = async (event) => {
     event.preventDefault();
     // get the information from the form
     const title = document.querySelector('#postTitle').value.trim();
-    const content = document.querySelector('#postContent').value;
+    const info = document.querySelector('#postContent').value;
 
-    if(title && content){
+    console.log(title);
+    console.log(info);
+
+    if(title && info){
+        console.log("title and content are true");
         const response = await fetch(`/api/posts/`, {
             method: 'POST',
-            body: JSON.stringify({title, content}),
+            body: JSON.stringify({title, info}),
             headers: { 'Content-Type': 'application/json'},
         });
         if(response.ok){ document.location.replace('/api/users/'); }
