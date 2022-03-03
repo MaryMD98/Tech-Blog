@@ -4,7 +4,7 @@ const Sequelize = require('sequelize');
 let sequelize;
 
 if (process.env.JAWSDB_URL) {
-    // sequelize = new Sequelize(process.env.JAWSDB_URL, {
+    sequelize = new Sequelize(process.env.JAWSDB_URL)//, {
     //     host: 'l6glqt8gsx37y4hs.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
     //     // dialect: 'mysql',
     //     // dialectOptions: {
