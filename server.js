@@ -19,8 +19,6 @@ const sess = {
     cookie: {
         maxAge: 120000,
     },
-    // resave: false,
-    // saveUninitialized: true,
     httpOnly: false,
     resave:true,
     rolling: true,
