@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 
 // ~~~~~Done~~~~~~~~~Done
 // Homepage will display all the post on database
-router.get('*', async (req, res) => {
+router.get('/', async (req, res) => {
     try{
         const postData = await Post.findAll({
             attributes:['id', 'title', 'info', 'date'],
