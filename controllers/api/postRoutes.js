@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Comment, Post, User } = require('../../models');
+const { Comment, Post, User } = require('../../models/index');
 const withAuth = require('../../utils/auth');
 
 // render to page to create new post, only withAuth can create
