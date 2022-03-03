@@ -1,3 +1,4 @@
+require('dotenv').config({ path: require('find-config')('.env') });
 const path = require('path');
 const express = require('express');
 
@@ -11,18 +12,20 @@ const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
-const PORT = process.env.PORT;// ||  3001;
+const PORT = process.env.PORT ||  3001;
 
 const sess = {
     secret: 'secrets',
     cookie: {
         maxAge: 120000,
     },
-    resave: false,
-    saveUninitialized: true,
-    // store: new SequelizeStore({
-    //     db: sequelize
-    //   }),
+    // resave: false,
+    // saveUninitialized: true,
+    httpOnly: false,
+    resave:true,
+    rolling: true,
+    saveUninitialized: false,
+    store: new SequelizeStore({ db:sequelize, checkExpirationInterval:120000 }),
 }
 
 app.use(session(sess));
@@ -40,4 +43,6 @@ app.use(express.static(path.join(__dirname, '/public')));
 // need to set up routes in controllers and api folder
 app.use(routes);
 
-app.listen(PORT, () => console.log(`APP listening to port ${PORT}`));
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log(`APP listening to port ${PORT}`));
+})
