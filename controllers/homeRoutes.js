@@ -36,14 +36,14 @@ router.post('/:id', withAuth, async (req, res) => {
 
 // login route, if already logged in send to dashboard, otherwise send to login page
 router.get('/login', (req, res) => {
-    if(req.session.logged_in){ res.redirect('/api/users/'); return; }
-    res.render('login', {style:"style.css" , dash_board:true });
+    if(req.session.logged_in){ res.redirect('/api/users/'); }
+    else {res.render('login', {style:"style.css" , dash_board:true });}
 });
 
 // sign up route, if already logged in send to dashboard, otherwise send to sign up page
 router.get('/signup', (req, res) => {
-    if(req.session.logged_in){ res.redirect('/api/users/'); return; }
-    res.render('signup', {style:"style.css" , dash_board:true });
+    if(req.session.logged_in){ res.redirect('/api/users/'); }
+    else {res.render('signup', {style:"style.css" , dash_board:true });}
 });
 
 module.exports = router;

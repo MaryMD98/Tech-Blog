@@ -5,11 +5,7 @@ const newPOST = async (event) => {
     const title = document.querySelector('#postTitle').value.trim();
     const info = document.querySelector('#postContent').value;
 
-    console.log(title);
-    console.log(info);
-
     if(title && info){
-        console.log("title and content are true");
         const response = await fetch(`/api/posts/`, {
             method: 'POST',
             body: JSON.stringify({title, info}),
