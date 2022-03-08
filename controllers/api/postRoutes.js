@@ -3,7 +3,7 @@ const { Comment, Post, User } = require('../../models/index');
 const withAuth = require('../../utils/auth');
 
 // render to page to create new post, only withAuth can create
-router.get('/', withAuth, (req, res)=>{ 
+router.get('/', withAuth, (req, res) => { 
     res.render("createpost", { style:"style.css" , dash_board:true , logged_in: req.session.logged_in }); 
 });
 
