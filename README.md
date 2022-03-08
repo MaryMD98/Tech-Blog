@@ -10,9 +10,9 @@ In this homework, I created a Tech Blog application that allows the user to publ
 The Homepage of the website displays all the posts saved on the dataBase. At the top, the website displays three links, home, dashboard, and login. When the user clicks login at the top of the page, a new window will display and will allow the user to log in or to create a new user account. When the user clicks on Dashboard, the page will display all the posts the user has created. When the user clicks a post on the dashboard, the application displays the post and it will allow the user to update the post or to delete the post. At the dashboard, the user has the option to create a new post. When the user clicks on the Home link, the user will be taken to the homepage. When the user clicks on a post, the user wil be allowed to leave a comment.  
 
 ### Link to application:
-Here is a screencapture video demostrating the functionality of the [application](). If this link does not work, you can try [this one]().
+Here is a screencapture video demostrating the functionality of the [application](https://watch.screencastify.com/v/2tSgSURA3KFGoKEbN40Z). If this link does not work, you can try [this one](https://drive.google.com/file/d/1uLZd1KqC8DDoiwGroYF1s51Z6KlsV6V1/view).
 
-To deploy the application, I am using Heroku. Here is the Link to the deployment of the [application]() and this is the link to the [repository]().
+To deploy the application, I am using Heroku. Here is the Link to the deployment of the [application](https://tech-blog-mm-14.herokuapp.com/) and this is the link to the [repository](https://github.com/MaryMD98/Tech-Blog.git).
 
 ## Table of Content
 
